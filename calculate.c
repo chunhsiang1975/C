@@ -1,3 +1,6 @@
+/*
+	This is a Basic + - * / caculator.
+*/
 #include<stdio.h>
 int main(){
 	char op;
