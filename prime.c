@@ -1,5 +1,5 @@
 /*
-Print prime
+Print prime from 2 to 1000. 1 is not a prime.
 */
 #include<stdio.h>
 int isPrime(int number);
