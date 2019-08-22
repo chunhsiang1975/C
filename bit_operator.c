@@ -8,7 +8,7 @@ Writed by Chun-Hsiang Chao
 char* printf_binary(int number);
 int main(void){
 	int i;
-	int number=77;//00000111
+	int number=85;//00000111
 	//85=0x55=01010101
 	//00011000 = 0x 18
 	char *binary;
