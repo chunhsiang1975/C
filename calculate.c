@@ -1,5 +1,5 @@
 /*
-	This is a Basic + - * / caculator.
+This is a Basic + - * / caculator.
 */
 #include<stdio.h>
 int main(){
