@@ -4,7 +4,7 @@ Traffic Light red yellow green
 Writed by Chun-Hsiang Chao
 */
 #include <stdio.h>
-#include <time.h>
+#include <unistd.h>
 int main(void){
 	int red_delay_time=10;
 	int green_delay_time=10;
