@@ -6,8 +6,8 @@ Fixed by Chun-Hsiang Chao
 */
 #include<stdio.h>
 #include<stdlib.h>
-#define BOARD_SQUARE 20			//Board's size
-#define win_size_in_parallel 5	//3:tic_ta_toc  5:gomoku 
+#define BOARD_SQUARE 20						//Board's size
+#define win_size_in_parallel 5					//3:tic_ta_toc  5:gomoku 
 void Board_Output(void);                                        //Generate Board size in monitor
 void Game(void);                                                //Deal with input
 void Board_Scan(int x, int y);                                  //Check Board
