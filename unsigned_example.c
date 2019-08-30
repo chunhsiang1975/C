@@ -1,8 +1,6 @@
-
 /*
 uint8_t, uint16_t, uint32_t and uint64_t.
 unsigned char, unsigned short, unsigned int and unsigned long long.
-
 */
 // testValue
 unsigned long long testValue     = 0xFFFFFFFFFFFFFFFF; // 18446744073709551615
