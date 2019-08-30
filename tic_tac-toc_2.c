@@ -6,7 +6,7 @@ Fixed by Chun-Hsiang Chao
 */
 #include<stdio.h>
 #include<stdlib.h>
-#define BOARD_SQUARE 20                 						//Board's size
+#define BOARD_SQUARE 20											//Board's size
 #define win_size_in_parallel 5									//3:tic_ta_toc  5:gomoku 
 void Board_Output(void);                                        //Generate Board size in monitor
 void Game(void);                                                //Deal with input
@@ -115,7 +115,7 @@ void Board_Scan( int x, int y ){
 }
 
 int Board_Scan_Sub( int x, int y, int move_x, int move_y ){
-    int n = 1;                                 //calculate the number in parallel
+    int n = 1;					//calculate the number in parallel
     int i;
 
     for( i = 1; i < win_size_in_parallel; i++ ){
