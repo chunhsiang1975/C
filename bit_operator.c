@@ -1,7 +1,7 @@
 /*
 Print number to some bits binary number.
 20190822
-Writed by Chun-Hsiang Chao
+Written by Chun-Hsiang Chao
 */
 #include <stdio.h>
 #include <math.h>
