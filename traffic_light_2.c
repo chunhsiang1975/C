@@ -1,7 +1,7 @@
 /*
 Use function and array to show Traffic Light red yellow green 
 20190828
-Writed by Chun-Hsiang Chao
+Written by Chun-Hsiang Chao
 */
 #include <unistd.h>
 #include <stdio.h>
