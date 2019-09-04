@@ -1,7 +1,7 @@
 /*
 Traffic Light red yellow green
 20190822
-Writed by Chun-Hsiang Chao
+Written by Chun-Hsiang Chao
 */
 #include <stdio.h>
 #include <unistd.h>
