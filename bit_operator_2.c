@@ -1,7 +1,7 @@
 /*
 Print the binary number's third and fouth bit's number.
 20190822
-Writed by Chun-Hsiang Chao
+Written by Chun-Hsiang Chao
 */
 #include <stdio.h>
 int main(void){
