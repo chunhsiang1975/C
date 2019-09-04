@@ -1,7 +1,7 @@
 /*
 Give the poker's card in random.
 20190904
-Writed by Chun-Hsiang Chao
+Written by Chun-Hsiang Chao
 */
 #include <stdio.h>
 #include <stdlib.h>
