@@ -26,14 +26,13 @@ void Move();
 void Food();
 int Score();
 void Print();
-
 void gotoxy(int x, int y);
 void GotoXY(int x,int y);
 void Bend();
 void Boarder();
+void Up();
 void Down();
 void Left();
-void Up();
 void Right();
 void ExitGame();
 int Scoreonly();
