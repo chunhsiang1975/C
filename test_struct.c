@@ -1,5 +1,5 @@
 /*
-Give the poker's card in random.
+Use different method to change struct value.
 20190904
 Written by Chun-Hsiang Chao
 */
