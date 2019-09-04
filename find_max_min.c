@@ -1,7 +1,7 @@
 /*
 Find max and min number from rand number.
 20190828
-Writed by Chun-Hsiang Chao
+Written by Chun-Hsiang Chao
 */
 #include<stdio.h>
 #include<time.h>
