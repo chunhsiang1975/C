@@ -1,7 +1,7 @@
 /*
 Guess the number.
 20190822
-Writed by Chun-Hsiang Chao
+Written by Chun-Hsiang Chao
 */
 #include <stdio.h>
 #include <stdlib.h>
