@@ -1,7 +1,7 @@
 /*	IT Training example
  *	Written by Chun-Hsiang Chao
  *	Date:20191002
- * /
+ */
 
 
 #include <unistd.h>
