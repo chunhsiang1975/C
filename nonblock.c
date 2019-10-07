@@ -11,6 +11,11 @@ int main(int argc, char *argv[])
     flags |= O_NONBLOCK;	  		/* Enable O_NONBLOCK bit */
     fcntl(0, F_SETFL, flags);
 
+    //flags = fcntl(0, F_GETFL);  	/* 0:stdin */
+    //flags &= ~O_NONBLOCK;	  		/* Disable O_NONBLOCK bit */
+    //fcntl(0, F_SETFL, flags);
+    
+    
     while(1)
     {
         sleep(1);
