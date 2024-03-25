@@ -1,7 +1,7 @@
 /*
  *	Say ip
  *	Written by Chun-Hsiang Chao
- *	Date:20191002
+ *	Date:20240325
  */
 #include <unistd.h>
 #include <stdlib.h>
@@ -10,21 +10,34 @@
 
 void say_char(char c){
 	FILE *in,*out;
-	char filename[100];
+	char string[300];
+	char filename[200];
 	if(c=='.'){
-		sprintf(filename,"/home/pi/Music/voice/dot.pcm",c);
+		sprintf(filename,"voice/dot.pcm");
+		//sprintf(filename,"~/Downloads/C-master/temp/voice/dot.pcm");
+		//sprintf(filename,"/home/hsiang/Downloads/C-master/temp/voice/dot.pcm");
 	}
 	else{
-		sprintf(filename,"/home/pi/Music/voice/%c.pcm",c);
+		sprintf(filename,"voice/%c.pcm",c);
+		//sprintf(filename,"~/Downloads/C-master/temp/voice/%c.pcm",c);
+		//sprintf(filename,"/home/hsiang/Downloads/C-master/temp/voice/%c.pcm",c);
 	}
+	//out=fopen("/dev/dsp","wb");
+#if 1
+		sprintf(string,"aplay %s",filename);
+		popen(string,"r");
+		//popen("aplay /home/hsiang/Downloads/C-master/temp/voice/1.pcm","r");
+		
+#else
 	in=fopen(filename,"rb");
 	out=fopen("/dev/dsp","wb");
 	while(fscanf(in,"%c",&c)!=EOF){
 		fprintf(out,"%c",c);
 	}
 	fclose(in);
-	sleep(1);
 	fclose(out);
+#endif
+	sleep(1);
 }
 
 
@@ -37,7 +50,8 @@ int main(int argc, char *argv[ ]){
 	char ip[20];
 	int i=5;
 	int j=0;
-	read_fp = popen("ifconfig wlan0", "r");
+	//read_fp = popen("ifconfig wlan0", "r");
+	read_fp = popen("ifconfig wlp3s0", "r");
 	if (read_fp != NULL) {
         chars_read = fread(buffer, sizeof(char), sizeof(buffer)-1, read_fp);
         if (chars_read > 0) {
@@ -60,12 +74,11 @@ int main(int argc, char *argv[ ]){
 		}
         }
         pclose(read_fp);
-
+	printf("%s\n",ip);
 	for(i=0;i<strlen(ip);i++){
 		say_char(ip[i]);	
 	}	
 
-	printf("%s\n",ip);
     }
     exit(0);
 }
