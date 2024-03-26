@@ -22,9 +22,8 @@ void say_char(char c){
 		//sprintf(filename,"~/Downloads/C-master/temp/voice/%c.pcm",c);
 		//sprintf(filename,"/home/hsiang/Downloads/C-master/temp/voice/%c.pcm",c);
 	}
-	//out=fopen("/dev/dsp","wb");
 #if 1
-		sprintf(string,"aplay %s",filename);
+		sprintf(string,"aplay -q %s",filename);
 		popen(string,"r");
 		//popen("aplay /home/hsiang/Downloads/C-master/temp/voice/1.pcm","r");
 		
@@ -39,7 +38,6 @@ void say_char(char c){
 #endif
 	sleep(1);
 }
-
 
 int main(int argc, char *argv[ ]){
 	FILE *read_fp;
