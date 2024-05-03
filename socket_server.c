@@ -6,6 +6,7 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <arpa/inet.h>
 #define PORT 8081
 int main(int argc, char const* argv[]){
 	int server_fd, new_socket;
@@ -24,7 +25,6 @@ int main(int argc, char const* argv[]){
 		perror("socket failed");
 		exit(EXIT_FAILURE);
 	}
-//20240416
 	//int setsockopt(int sockfd, int level, int optname,  const void *optval, socklen_t optlen);
 	//Using setsockopt helps in manipulating options for the socket referred by the file descriptor sockfd. This is completely optional, but it helps in reuse of address and port. Prevents error such as: “address already in use”.
 	//See https://pubs.opengroup.org/onlinepubs/000095399/functions/setsockopt.html	
@@ -39,13 +39,15 @@ int main(int argc, char const* argv[]){
 		exit(EXIT_FAILURE);
 	}
 	address.sin_family = AF_INET;
-	address.sin_addr.s_addr = INADDR_ANY;
+	//address.sin_addr.s_addr = INADDR_ANY;
+	address.sin_addr.s_addr = inet_addr("127.0.0.1");
 	address.sin_port = htons(PORT);
 
-	// Forcefully attaching socket to the port 8080
-	if (bind(server_fd, (struct sockaddr*)&address,
-			sizeof(address))
-		< 0) {
+	printf("%d %d %d\n",AF_INET,address.sin_addr.s_addr,address.sin_port);
+	// Forcefully attaching socket to the port 8081
+//20240503
+	//int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+	if (bind(server_fd, (struct sockaddr*)&address, sizeof(address))< 0) {
 		perror("bind failed");
 		exit(EXIT_FAILURE);
 	}
@@ -53,15 +55,11 @@ int main(int argc, char const* argv[]){
 		perror("listen");
 		exit(EXIT_FAILURE);
 	}
-	if ((new_socket
-		= accept(server_fd, (struct sockaddr*)&address,
-				&addrlen))
-		< 0) {
+	if ((new_socket = accept(server_fd, (struct sockaddr*)&address, &addrlen)) < 0) {
 		perror("accept");
 		exit(EXIT_FAILURE);
 	}
-	valread = read(new_socket, buffer,
-				1024 - 1); // subtract 1 for the null
+	valread = read(new_socket, buffer, 1024 - 1); // subtract 1 for the null
 							// terminator at the end
 	printf("%s\n", buffer);
 	send(new_socket, hello, strlen(hello), 0);
